@@ -1,0 +1,20 @@
+{
+  "name": "external-module",
+  "version": "1.0.0",
+  "description": "Внешний модуль для Modular KB Extension",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  }
+}
