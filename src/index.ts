@@ -1,9 +1,9 @@
-import { ExternalModule } from './ExternalModule';
+import { BaseModule } from './BaseModule';
 
 // Экспортируем класс модуля
-export { ExternalModule };
+export { BaseModule as Module };
 
-// Экспортируем функцию для создания экземпляра модуля
-export function createModule() {
-    return new ExternalModule();
-}
+// Экспортируем все интерфейсы и сервисы для использования в других модулях
+export * from './interfaces/kb-module';
+export * from './services/IContextService';
+export * from './tools/GetContextTool';

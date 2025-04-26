@@ -1,7 +1,7 @@
 {
-  "name": "external-module",
+  "name": "base-module",
   "version": "1.0.0",
-  "description": "Внешний модуль для Modular KB Extension",
+  "description": "Базовый шаблон модуля для Modular KB с архитектурой Detached-Core",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",

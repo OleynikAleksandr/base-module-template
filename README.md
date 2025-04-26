@@ -1,4 +1,53 @@
-# Базовый шаблон модуля для Modular KB Extension
+# Базовый шаблон модуля для Modular KB
+
+Это базовый шаблон модуля для расширения Modular KB с архитектурой Detached-Core.
+
+## Структура модуля
+
+```
+base-module.zip
+  ├─ lib/Module.Base.dll (скомпилированный модуль)
+  ├─ module.json (метаданные модуля)
+  └─ README.md (документация)
+```
+
+## Файл module.json
+
+```json
+{
+  "id": "base-module",
+  "version": "1.0.0",
+  "entryType": "BaseModule.Module, BaseModule"
+}
+```
+
+## Интерфейс IKbModule
+
+```csharp
+public interface IKbModule
+{
+    void Configure(IServiceCollection services, IMcpRegistry mcpRegistry);
+}
+```
+
+## Пример реализации
+
+```csharp
+public class BaseModule : IKbModule
+{
+    public void Configure(IServiceCollection services, IMcpRegistry mcpRegistry)
+    {
+        // Регистрация сервисов
+        services.AddScoped<IContextService, ContextService>();
+        
+        // Регистрация MCP-инструментов
+        mcpRegistry.RegisterTool("kb_getContext", typeof(GetContextTool));
+        
+        // Регистрация фоновых сервисов
+        services.AddHostedService<BackgroundWorker>();
+    }
+}
+```
 
 Этот проект является базовым шаблоном для создания модулей расширения Modular KB Extension. Используйте его как основу для разработки собственных модулей, которые будут загружаться в основное расширение.
 
